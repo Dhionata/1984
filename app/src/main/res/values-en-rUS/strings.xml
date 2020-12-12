@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="postar">Postar</string>
+    <string name="id">id</string>
+    <string name="message">message</string>
 </resources>

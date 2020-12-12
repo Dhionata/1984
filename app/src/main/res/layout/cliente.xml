@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cliente">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/texto_a_postar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/postar"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:text="@string/postar" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/digite_o_que_estiver_pensando"
+             />
+
+        <ListView
+            android:id="@+id/lista_postagem"
+            android:layout_width="wrap_content"
+            android:layout_height="847dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

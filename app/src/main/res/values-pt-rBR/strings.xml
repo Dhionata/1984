@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="postar">Postar</string>
+    <string name="digite_o_que_estiver_pensando">Digite o que estiver pensando...</string>
+    <string name="visualizar">Visualizar</string>
 </resources>
