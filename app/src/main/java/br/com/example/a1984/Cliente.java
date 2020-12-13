@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.pubsub.v1.Publisher;
+import com.google.cloud.pubsub.v1.TopicAdminClient;
 import com.google.protobuf.ByteString;
 import com.google.pubsub.v1.PubsubMessage;
 import com.google.pubsub.v1.TopicName;
@@ -33,6 +34,14 @@ public class Cliente extends AppCompatActivity {
 
     private void postar(String projectId, String topicId) throws InterruptedException {
         TopicName topicName = TopicName.of(projectId, topicId);
+
+        try {
+            TopicAdminClient topicAdminClient = TopicAdminClient.create();
+            topicAdminClient.createTopic(topicName);
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "não deu pra criar o tópico...\n" + e.getMessage(),
+                    Toast.LENGTH_LONG).show();
+        }
 
         Publisher publisher = null;
         try {

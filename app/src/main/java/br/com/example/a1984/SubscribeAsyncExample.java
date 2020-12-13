@@ -2,6 +2,7 @@ package br.com.example.a1984;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,35 +17,40 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class SubscribeAsyncExample extends AppCompatActivity {
-    TextView Tid = findViewById(R.id.textViewID);
-    TextView Tmessage = findViewById(R.id.textViewMessage);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String projectId = "fasam-1984";
         String subscriptionId = "teste";
 
-        subscribeAsyncExample(projectId, subscriptionId);
+        try {
+            subscribeAsyncExample(projectId, subscriptionId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Cara, deu um probleminha:\n" + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     public void subscribeAsyncExample(String projectId,
                                       String subscriptionId) {
-        ProjectSubscriptionName subscriptionName =
-                ProjectSubscriptionName.of(projectId, subscriptionId);
-
-        // Instantiate an asynchronous message receiver.
-        MessageReceiver receiver =
-                (PubsubMessage message, AckReplyConsumer consumer) -> {
-                    // Handle incoming message, then ack the received message.
-                    //System.out.println("Id: " + message.getMessageId());
-                    //System.out.println("Data: " + message.getData().toStringUtf8());
-                    Tid.setText(message.getMessageId());
-                    Tmessage.setText(message.getMessageId());
-                    consumer.ack();
-                };
-
-        Subscriber subscriber = null;
+        TextView Tid = findViewById(R.id.textViewID);
+        TextView Tmessage = findViewById(R.id.textViewMessage);
         try {
+            ProjectSubscriptionName subscriptionName =
+                    ProjectSubscriptionName.of(projectId, subscriptionId);
+
+            // Instantiate an asynchronous message receiver.
+            MessageReceiver receiver =
+                    (PubsubMessage message, AckReplyConsumer consumer) -> {
+                        // Handle incoming message, then ack the received message.
+                        //System.out.println("Id: " + message.getMessageId());
+                        //System.out.println("Data: " + message.getData().toStringUtf8());
+                        Tid.setText(message.getMessageId());
+                        Tmessage.setText(message.getMessageId());
+                        consumer.ack();
+                    };
+
+            Subscriber subscriber = null;
             subscriber = Subscriber.newBuilder(subscriptionName, receiver).build();
             // Start the subscriber.
             subscriber.startAsync().awaitRunning();
@@ -53,8 +59,9 @@ public class SubscribeAsyncExample extends AppCompatActivity {
             subscriber.awaitTerminated(30, TimeUnit.SECONDS);
         } catch (TimeoutException e) {
             // Shut down the subscriber after 30s. Stop receiving messages.
-            subscriber.stopAsync();
             e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Cara, deu um probleminha 2:\n" + e.getMessage(),
+                    Toast.LENGTH_LONG).show();
         }
     }
 }

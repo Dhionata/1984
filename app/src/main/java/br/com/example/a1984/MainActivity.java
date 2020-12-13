@@ -5,31 +5,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
+import static br.com.example.a1984.R.*;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(layout.activity_main);
     }
 
     public void exibir(View view) {
         //
-        int opcao = view.getId();
-        Intent intent;
+        try {
+            int opcao = view.getId();
+            Intent intent;
 
-        switch (opcao) {
-            case R.id.button7:
+            if (opcao == id.postar) {
                 intent = new Intent(getApplicationContext(), Cliente.class);
                 startActivity(intent);
-                break;
-            case R.id.button8:
+            } else if (opcao == id.visualizar) {
                 intent = new Intent(getApplicationContext(), SubscribeAsyncExample.class);
                 startActivity(intent);
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + opcao);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Cara, deu um probleminha...\n" + e.getMessage(),
+                    Toast.LENGTH_LONG).show();
         }
     }
 }
