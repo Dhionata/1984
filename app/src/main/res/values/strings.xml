@@ -2,7 +2,7 @@
     <string name="app_name">1984</string>
     <string name="postar">Postar</string>
     <string name="digite_o_que_estiver_pensando">Digite o que estiver pensando…</string>
-    <string name="id">id</string>
-    <string name="message">message</string>
+    <string name="id" translatable="false">ID</string>
+    <string name="message">Message</string>
     <string name="visualizar">Visualizar</string>
 </resources>

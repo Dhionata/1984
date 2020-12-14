@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="postar">Postar</string>
-    <string name="id">id</string>
-    <string name="message">message</string>
+    <string name="message">Message</string>
+    <string name="app_name">1984</string>
+    <string name="digite_o_que_estiver_pensando">Type what you\'re thinking ...</string>
+    <string name="visualizar">To view</string>
 </resources>

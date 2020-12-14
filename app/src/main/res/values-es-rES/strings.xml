@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="postar">Postar</string>
+    <string name="app_name">1984</string>
+    <string name="digite_o_que_estiver_pensando">Escribe lo que estás pensando ...</string>
+    <string name="message">Mensaje</string>
+    <string name="visualizar">Para ver</string>
 </resources>
