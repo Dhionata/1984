@@ -1,9 +1,9 @@
 package br.com.example.a1984;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.pubsub.v1.Publisher;
@@ -15,7 +15,6 @@ import com.google.pubsub.v1.TopicName;
 import java.util.concurrent.TimeUnit;
 
 public class Cliente extends AppCompatActivity {
-    //ListView listView = new ListView(getApplicationContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

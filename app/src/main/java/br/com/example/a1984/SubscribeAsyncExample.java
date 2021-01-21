@@ -14,7 +14,6 @@ import com.google.pubsub.v1.PubsubMessage;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class SubscribeAsyncExample extends AppCompatActivity {
 

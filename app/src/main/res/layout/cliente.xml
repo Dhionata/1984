@@ -25,8 +25,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/digite_o_que_estiver_pensando"
-             />
+            android:hint="@string/digite_o_que_estiver_pensando" />
 
         <ListView
             android:id="@+id/lista_postagem"
