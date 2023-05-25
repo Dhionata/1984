@@ -1,14 +1,14 @@
 package br.com.example.a1984;
 
+import static br.com.example.a1984.R.id;
+import static br.com.example.a1984.R.layout;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import static br.com.example.a1984.R.id;
-import static br.com.example.a1984.R.layout;
 
 public class MainActivity extends AppCompatActivity {
 
